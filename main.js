@@ -1,0 +1,146 @@
+/* ============================================================
+   SOORA BUBBLE — main.js
+   Navegação, scroll-reveal, menu mobile, smooth-scroll.
+   Sem dependências externas.
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  /* ── 1. NAVBAR: transparente → sólida ao rolar ── */
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+
+    // Adiciona classe .scrolled após 60px de rolagem
+    navbar.classList.toggle('scrolled', scrollY > 60);
+
+    lastScroll = scrollY;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // Estado inicial
+
+  /* ── 2. MENU MOBILE ── */
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks   = document.getElementById('navLinks');
+
+  function toggleMenu(open) {
+    const isOpen = open !== undefined ? open : !navLinks.classList.contains('open');
+    navLinks.classList.toggle('open', isOpen);
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    // Previne scroll do body enquanto menu está aberto
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  menuToggle.addEventListener('click', () => toggleMenu());
+
+  // Fecha ao clicar em qualquer link
+  navLinks.querySelectorAll('.navbar__link').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // Fecha ao clicar fora do menu em mobile
+  document.addEventListener('click', (e) => {
+    if (
+      navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      toggleMenu(false);
+    }
+  });
+
+  // Fecha ao pressionar Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      toggleMenu(false);
+      menuToggle.focus();
+    }
+  });
+
+  /* ── 3. SMOOTH SCROLL para âncoras internas ── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const navHeight = navbar.offsetHeight;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    });
+  });
+
+  /* ── 4. SCROLL REVEAL (IntersectionObserver) ── */
+  const revealElements = document.querySelectorAll('.reveal, .reveal-item');
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target); // Anima só uma vez
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -48px 0px'
+      }
+    );
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback: mostra tudo para browsers sem suporte
+    revealElements.forEach(el => el.classList.add('visible'));
+  }
+
+  /* ── 5. HIGHLIGHT do link da nav ativa (scroll spy leve) ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinkItems = document.querySelectorAll('.navbar__link:not(.navbar__link--cta)');
+
+  function updateActiveLink() {
+    const scrollMid = window.scrollY + window.innerHeight / 2;
+
+    let activeId = null;
+    sections.forEach(sec => {
+      if (sec.offsetTop <= scrollMid) {
+        activeId = sec.id;
+      }
+    });
+
+    navLinkItems.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      link.style.color = href === activeId ? 'var(--verde-lima)' : '';
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+  /* ── 6. LAZY LOADING de imagens (tag <img> com data-src) ── */
+  const lazyImgs = document.querySelectorAll('img[data-src]');
+  if (lazyImgs.length && 'IntersectionObserver' in window) {
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+          img.removeAttribute('data-src');
+          imgObserver.unobserve(img);
+        }
+      });
+    });
+    lazyImgs.forEach(img => imgObserver.observe(img));
+  }
+
+})();

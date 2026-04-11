@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soora Bubble — Experiência Imersiva na Mata Atlântica</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Durma dentro da floresta em uma bolha 100% transparente na Mata Atlântica. Vista 360°, jacuzzi aquecida, firepit e céu estrelado. Uma experiência única de imersão na natureza." />
+  <meta name="keywords" content="soora bubble, hospedagem natureza, mata atlântica, glamping, bolha transparente, experiência imersiva, turismo ecológico, bubble hotel brasil" />
+  <meta name="author" content="Soora Bubble" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Soora Bubble — Experiência Imersiva na Mata Atlântica" />
+  <meta property="og:description" content="Durma dentro da floresta em uma bolha 100% transparente. Vista 360° para a natureza, jacuzzi aquecida e céu estrelado." />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:url" content="https://soorabubble.com.br" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Soora Bubble — Experiência Imersiva na Mata Atlântica" />
+  <meta name="twitter:description" content="Durma dentro da floresta em uma bolha 100% transparente." />
+  <meta name="twitter:image" content="og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================================================
+       NAVEGAÇÃO
+  ================================================ -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo SVG inline (recriado a partir da imagem da marca) -->
+      <a href="#hero" class="navbar__logo" aria-label="Soora Bubble — página inicial">
+        <svg class="logo-svg" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- "s" -->
+          <text x="0" y="42" font-family="Nunito, sans-serif" font-weight="800" font-size="48" fill="currentColor">s</text>
+          <!-- Bubble "o" — cápsula com reflexo gloss -->
+          <rect x="36" y="8" width="44" height="28" rx="14" ry="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+          <path d="M44 18 Q48 13 56 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M46 24 Q49 21 53 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- "ra" -->
+          <text x="84" y="42" font-family="Nunito, sans-serif" font-weight="800" font-size="48" fill="currentColor">ra</text>
+          <!-- "BUBBLE" tagline -->
+          <text x="132" y="52" font-family="Lato, sans-serif" font-weight="700" font-size="11" letter-spacing="3" fill="currentColor">BUBBLE</text>
+        </svg>
+      </a>
+
+      <!-- Toggle mobile -->
+      <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Links -->
+      <ul class="navbar__links" id="navLinks" role="list">
+        <li><a href="#experiencia" class="navbar__link">A Experiência</a></li>
+        <li><a href="#acomodacoes" class="navbar__link">Acomodações</a></li>
+        <li><a href="#reservas" class="navbar__link">Reservas</a></li>
+        <li><a href="#checkin" class="navbar__link">Chegada</a></li>
+        <li><a href="#reservas" class="navbar__link navbar__link--cta">Reservar agora</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ================================================
+       HERO
+  ================================================ -->
+  <section id="hero" class="hero">
+    <!-- Fundo: substituir pelo vídeo/foto real da bolha na floresta -->
+    <div class="hero__bg">
+      <!--
+        PLACEHOLDER: Vídeo de fundo da bolha na mata atlântica à noite.
+        Descomente e ajuste quando tiver o arquivo:
+
+        <video autoplay muted loop playsinline class="hero__video">
+          <source src="videos/hero-bolha-floresta.mp4" type="video/mp4" />
+        </video>
+      -->
+      <div class="hero__bg-image" role="img" aria-label="Vista da bolha transparente na Mata Atlântica"></div>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Mata Atlântica · Brasil</p>
+      <h1 class="hero__headline">
+        Durma dentro<br>
+        <em>da floresta.</em>
+      </h1>
+      <p class="hero__sub">
+        Uma bolha 100% transparente no coração da Mata Atlântica.<br>
+        Vista 360°, céu estrelado e o silêncio que só a natureza oferece.
+      </p>
+      <div class="hero__actions">
+        <a href="#reservas" class="btn btn--primary">Reservar minha noite</a>
+        <a href="#experiencia" class="btn btn--ghost">Conhecer a experiência</a>
+      </div>
+    </div>
+
+    <!-- Bolha animada decorativa -->
+    <div class="hero__bubble" aria-hidden="true">
+      <div class="bubble-ring ring-1"></div>
+      <div class="bubble-ring ring-2"></div>
+      <div class="bubble-ring ring-3"></div>
+      <div class="bubble-gloss"></div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Deslize</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       A EXPERIÊNCIA
+  ================================================ -->
+  <section id="experiencia" class="experiencia reveal">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="section-label">A Experiência</span>
+        <h2 class="section-title">Onde começa e termina<br><em>o mundo natural</em></h2>
+      </header>
+
+      <div class="experiencia__grid">
+        <div class="experiencia__text">
+          <p class="experiencia__lead">
+            Você fecha os olhos e a floresta continua lá. Quando os abre, ela ainda está — envolvendo tudo, respirando ao redor, sussurrando entre as folhas.
+          </p>
+          <p>
+            A Soora Bubble é uma bolha de acrílico cristalino instalada no interior da Mata Atlântica. Não há paredes que separam você da natureza. Há apenas o vidro fino entre você e o universo vegetal que te abraça por completo.
+          </p>
+          <p>
+            Durante o dia, a luz filtra verde através das copas centenárias. À noite, as estrelas aparecem acima de você sem nenhum obstáculo — sem poluição luminosa, sem teto, sem pressa. A chuva sobre a bolha é o lullaby mais antigo do mundo.
+          </p>
+
+          <div class="diferenciais">
+
+            <div class="diferencial reveal-item">
+              <div class="diferencial__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M7 9a5 5 0 0 1 5-3"/>
+                  <path d="M17 15a5 5 0 0 1-5 3"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Transparência total</strong>
+                <span>Acrílico cristalino 360° ao redor</span>
+              </div>
+            </div>
+
+            <div class="diferencial reveal-item">
+              <div class="diferencial__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Céu estrelado</strong>
+                <span>Sem poluição luminosa, visão plena</span>
+              </div>
+            </div>
+
+            <div class="diferencial reveal-item">
+              <div class="diferencial__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Imersão na floresta</strong>
+                <span>Dentro do ecossistema vivo</span>
+              </div>
+            </div>
+
+            <div class="diferencial reveal-item">
+              <div class="diferencial__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Privacidade absoluta</strong>
+                <span>Uma bolha, uma experiência exclusiva</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="experiencia__fotos">
+          <!-- PLACEHOLDER: Foto da bolha de dia com vegetação ao redor -->
+          <figure class="img-placeholder img-placeholder--tall" role="img" aria-label="Foto da bolha transparente rodeada pela Mata Atlântica durante o dia">
+            <div class="img-placeholder__inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>FOTO: Bolha de dia na floresta</span>
+              <small>Proporção recomendada: 3:4 vertical</small>
+            </div>
+          </figure>
+          <!-- PLACEHOLDER: Foto da bolha à noite com céu estrelado -->
+          <figure class="img-placeholder img-placeholder--wide" role="img" aria-label="Foto do interior da bolha à noite com céu estrelado visível">
+            <div class="img-placeholder__inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>FOTO: Bolha à noite com estrelas</span>
+              <small>Proporção recomendada: 16:9 horizontal</small>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       ACOMODAÇÕES
+  ================================================ -->
+  <section id="acomodacoes" class="acomodacoes reveal">
+    <div class="container">
+
+      <header class="section-header section-header--light">
+        <span class="section-label section-label--dark">O que te espera</span>
+        <h2 class="section-title">Cada detalhe pensado<br><em>para sua imersão</em></h2>
+      </header>
+
+      <!--
+        GRID DE ACOMODAÇÕES: renderizado dinamicamente pelo JavaScript.
+        Para adicionar ou editar itens, veja o array ACOMODACOES em booking.js
+      -->
+      <div class="acomodacoes__grid" id="acomodacoesGrid">
+        <!-- Preenchido por booking.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       RESERVAS
+  ================================================ -->
+  <section id="reservas" class="reservas reveal">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="section-label">Reservas</span>
+        <h2 class="section-title">Escolha sua noite<br><em>na floresta</em></h2>
+      </header>
+
+      <div class="reservas__wrapper">
+
+        <!-- Indicador de progresso -->
+        <div class="booking-steps" id="bookingSteps" aria-label="Etapas da reserva">
+          <div class="step step--active" data-step="1">
+            <span class="step__num" aria-hidden="true">1</span>
+            <span class="step__label">Datas</span>
+          </div>
+          <div class="step__connector"></div>
+          <div class="step" data-step="2">
+            <span class="step__num" aria-hidden="true">2</span>
+            <span class="step__label">Hóspede</span>
+          </div>
+          <div class="step__connector"></div>
+          <div class="step" data-step="3">
+            <span class="step__num" aria-hidden="true">3</span>
+            <span class="step__label">Confirmar</span>
+          </div>
+        </div>
+
+        <div class="booking-body">
+
+          <!-- ── PASSO 1: DATAS ── -->
+          <div class="booking-panel booking-panel--active" id="step1">
+            <h3 class="booking-panel__title">Selecione as datas</h3>
+
+            <div class="dates-display">
+              <div class="date-box" id="checkinBox">
+                <label>Check-in</label>
+                <span id="checkinText">Selecionar</span>
+              </div>
+              <div class="dates-display__arrow" aria-hidden="true">→</div>
+              <div class="date-box" id="checkoutBox">
+                <label>Check-out</label>
+                <span id="checkoutText">Selecionar</span>
+              </div>
+            </div>
+
+            <!-- Calendário renderizado por JS -->
+            <div id="calendarContainer" class="calendar-wrap"></div>
+
+            <div class="calendar-legend" aria-label="Legenda do calendário">
+              <span class="legend-item"><span class="legend-dot legend-dot--avail"></span>Disponível</span>
+              <span class="legend-item"><span class="legend-dot legend-dot--unavail"></span>Indisponível</span>
+              <span class="legend-item"><span class="legend-dot legend-dot--sel"></span>Selecionado</span>
+            </div>
+
+            <div class="price-preview" id="pricePreview" hidden>
+              <div class="price-preview__row">
+                <span id="priceBreakdown">—</span>
+                <strong id="priceTotal">R$ 0</strong>
+              </div>
+              <p class="price-preview__note">Inclui todas as taxas. Pagamento na chegada ou via PIX.</p>
+            </div>
+
+            <button class="btn btn--primary btn--full mt-lg" id="step1Next" disabled>
+              Continuar →
+            </button>
+          </div>
+
+          <!-- ── PASSO 2: HÓSPEDE ── -->
+          <div class="booking-panel" id="step2">
+            <h3 class="booking-panel__title">Seus dados</h3>
+
+            <form id="guestForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="guestName">Nome completo <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="guestName" name="name" placeholder="Seu nome completo" required autocomplete="name" />
+                <span class="form-error" id="errorName"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="guestEmail">E-mail <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="email" id="guestEmail" name="email" placeholder="seu@email.com" required autocomplete="email" />
+                <span class="form-error" id="errorEmail"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="guestPhone">WhatsApp / Telefone <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="tel" id="guestPhone" name="phone" placeholder="(00) 00000-0000" required autocomplete="tel" />
+                <span class="form-error" id="errorPhone"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="guestGuests">Número de hóspedes</label>
+                <select class="form-input form-select" id="guestGuests" name="guests">
+                  <option value="1">1 pessoa</option>
+                  <option value="2" selected>2 pessoas</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="guestNotes">Observações (opcional)</label>
+                <textarea class="form-input form-textarea" id="guestNotes" name="notes" placeholder="Aniversário, dieta especial, necessidades específicas…" rows="3"></textarea>
+              </div>
+            </form>
+
+            <div class="booking-nav">
+              <button class="btn btn--ghost" id="step2Back">← Voltar</button>
+              <button class="btn btn--primary" id="step2Next">Revisar reserva →</button>
+            </div>
+          </div>
+
+          <!-- ── PASSO 3: CONFIRMAÇÃO ── -->
+          <div class="booking-panel" id="step3">
+            <h3 class="booking-panel__title">Confirmar reserva</h3>
+
+            <div class="booking-summary" id="bookingSummary">
+              <!-- Preenchido por JS -->
+            </div>
+
+            <div class="booking-terms">
+              <label class="checkbox-label">
+                <input type="checkbox" id="termsCheck" />
+                <span>Concordo com a <a href="#politica" class="link">política de cancelamento</a> e as regras da hospedagem.</span>
+              </label>
+            </div>
+
+            <div class="booking-nav">
+              <button class="btn btn--ghost" id="step3Back">← Voltar</button>
+              <button class="btn btn--primary" id="step3Confirm" disabled>Confirmar reserva</button>
+            </div>
+          </div>
+
+          <!-- ── SUCESSO ── -->
+          <div class="booking-panel" id="stepSuccess">
+            <div class="booking-success">
+              <div class="booking-success__icon" aria-hidden="true">
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <h3>Reserva solicitada!</h3>
+              <p>Recebemos seu pedido. Em breve entraremos em contato pelo WhatsApp ou e-mail para confirmar a disponibilidade e combinar o pagamento.</p>
+              <p id="successSummary" class="booking-success__summary"></p>
+              <a href="#checkin" class="btn btn--primary mt-lg">Ver instruções de chegada →</a>
+            </div>
+          </div>
+
+        </div><!-- /booking-body -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       CHECK-IN / CHECK-OUT
+  ================================================ -->
+  <section id="checkin" class="checkin reveal">
+    <div class="container">
+
+      <header class="section-header section-header--light">
+        <span class="section-label section-label--dark">Informações práticas</span>
+        <h2 class="section-title">Prepare sua chegada<br><em>à floresta</em></h2>
+      </header>
+
+      <div class="checkin__grid">
+
+        <!-- Horários -->
+        <div class="info-card reveal-item">
+          <div class="info-card__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 class="info-card__title">Horários</h3>
+          <ul class="info-list">
+            <li><strong>Check-in:</strong> A partir das 15h00</li>
+            <li><strong>Check-out:</strong> Até as 11h00</li>
+            <li><em>Chegadas tardias: avise com antecedência via WhatsApp</em></li>
+          </ul>
+        </div>
+
+        <!-- Como chegar -->
+        <div class="info-card reveal-item">
+          <div class="info-card__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="info-card__title">Como chegar</h3>
+          <ul class="info-list">
+            <!--
+              EDITÁVEL: Atualize o endereço e instruções de acesso abaixo.
+            -->
+            <li><strong>Endereço:</strong> Estrada da Mata Atlântica, km 12 — [Cidade/Estado]</li>
+            <li>Acesso pela rodovia [XX-000], saída [X], siga as placas "Soora Bubble"</li>
+            <li>Últimos 400m em estrada de terra — carro comum chega sem problemas</li>
+          </ul>
+        </div>
+
+        <!-- O que trazer -->
+        <div class="info-card reveal-item">
+          <div class="info-card__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3 class="info-card__title">O que trazer</h3>
+          <ul class="info-list info-list--check">
+            <li>Roupas leves + agasalho para a noite</li>
+            <li>Repelente natural</li>
+            <li>Câmera fotográfica (o céu é incrível)</li>
+            <li>Marshmallow para o firepit</li>
+            <li>Vontade de desacelerar</li>
+          </ul>
+        </div>
+
+        <!-- Regras -->
+        <div class="info-card reveal-item">
+          <div class="info-card__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="info-card__title">Regras &amp; Respeito</h3>
+          <ul class="info-list info-list--cross">
+            <li>Proibido fumar dentro ou próximo à bolha</li>
+            <li>Pets: consulte disponibilidade ao reservar</li>
+            <li>Silêncio após as 22h (respeito à floresta)</li>
+            <li>Não remova plantas, animais ou pedras</li>
+            <li>Todo lixo gerado deve ser retirado</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Mapa -->
+      <div class="checkin__mapa">
+        <h3 class="checkin__mapa-title">Localização</h3>
+        <!--
+          EDITÁVEL: Substitua o bloco abaixo pelo iframe do Google Maps.
+          Para gerar: Google Maps → Compartilhar → Incorporar mapa → copiar <iframe>
+        -->
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-placeholder__inner">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <p>Mapa Google Maps aqui</p>
+              <small>Substitua este bloco pelo &lt;iframe&gt; do Google Maps Embed.<br>Instruções detalhadas em <code>COMO-EDITAR.md</code></small>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDITÁVEL: Atualize o número de WhatsApp abaixo -->
+        <div class="contato-emergencia">
+          <strong>Contato de emergência &amp; WhatsApp:</strong>
+          <a href="https://wa.me/5500000000000" class="contato-link" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.49z"/>
+            </svg>
+            (00) 00000-0000
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer class="footer" id="politica">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <a href="#hero" class="footer__logo" aria-label="Soora Bubble — topo da página">
+            <svg class="logo-svg" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <text x="0" y="42" font-family="Nunito, sans-serif" font-weight="800" font-size="48" fill="currentColor">s</text>
+              <rect x="36" y="8" width="44" height="28" rx="14" ry="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <path d="M44 18 Q48 13 56 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M46 24 Q49 21 53 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <text x="84" y="42" font-family="Nunito, sans-serif" font-weight="800" font-size="48" fill="currentColor">ra</text>
+              <text x="132" y="52" font-family="Lato, sans-serif" font-weight="700" font-size="11" letter-spacing="3" fill="currentColor">BUBBLE</text>
+            </svg>
+          </a>
+          <p class="footer__tagline">Dormir dentro da floresta.</p>
+          <div class="footer__social">
+            <!-- EDITÁVEL: Atualize os links das redes sociais -->
+            <a href="#" class="social-link" aria-label="Instagram da Soora Bubble" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="TikTok da Soora Bubble" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.75a4.86 4.86 0 0 1-1-.06z"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/5500000000000" class="social-link" aria-label="WhatsApp da Soora Bubble" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.49z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__nav">
+          <h4 class="footer__nav-title">Navegação</h4>
+          <ul>
+            <li><a href="#experiencia">A Experiência</a></li>
+            <li><a href="#acomodacoes">Acomodações</a></li>
+            <li><a href="#reservas">Reservas</a></li>
+            <li><a href="#checkin">Como Chegar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__contato">
+          <h4 class="footer__nav-title">Contato</h4>
+          <ul>
+            <!-- EDITÁVEL: Atualize os dados de contato abaixo -->
+            <li><a href="mailto:contato@soorabubble.com.br">contato@soorabubble.com.br</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp: (00) 00000-0000</a></li>
+            <li>Mata Atlântica — [Cidade/Estado], Brasil</li>
+          </ul>
+        </div>
+
+        <div class="footer__politica">
+          <h4 class="footer__nav-title">Política de Cancelamento</h4>
+          <p>
+            <strong>+7 dias antes:</strong> reembolso integral.<br>
+            <strong>3–7 dias antes:</strong> 50% de reembolso.<br>
+            <strong>Menos de 3 dias:</strong> sem reembolso.<br>
+            Casos de força maior são analisados individualmente.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Soora Bubble. Todos os direitos reservados.</p>
+        <p>Feito com cuidado para a floresta e para quem a visita.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
