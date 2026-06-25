@@ -396,15 +396,12 @@ em { font-style: italic; color: var(--lima); }
     radial-gradient(circle 1px at 22% 85%, rgba(255,255,255,.25) 0%, transparent 100%);
 }
 
-/* Imagem real do hero — descomente e configure: */
-/*
 .hero__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
 }
-*/
 
 .hero__overlay {
   position: absolute;
