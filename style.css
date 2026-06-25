@@ -271,9 +271,12 @@ em { font-style: italic; color: var(--lima); }
   flex-shrink: 0;
 }
 .navbar__logo-img {
-  height: 28px;
-  width: auto;
-  display: block;
+  display: block !important;
+  height: 28px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: 28px !important;
+  object-fit: contain;
   filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(60deg);
 }
 .logo-word { color: var(--creme); }
@@ -1270,9 +1273,12 @@ em { font-style: italic; color: var(--lima); }
   margin-bottom: var(--sp-sm);
 }
 .footer__logo-img {
-  height: 44px;
-  width: auto;
-  display: block;
+  display: block !important;
+  height: 44px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: 44px !important;
+  object-fit: contain;
   filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(60deg);
 }
 
