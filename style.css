@@ -407,8 +407,8 @@ em { font-style: italic; color: var(--lima); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(6,18,10,.4) 0%, rgba(6,18,10,.1) 60%, transparent 100%),
-    linear-gradient(to top, rgba(9,32,15,.6) 0%, transparent 40%);
+    linear-gradient(to right, rgba(6,18,10,.25) 0%, rgba(6,18,10,.05) 60%, transparent 100%),
+    linear-gradient(to top, rgba(9,32,15,.45) 0%, transparent 35%);
   z-index: 1;
 }
 
