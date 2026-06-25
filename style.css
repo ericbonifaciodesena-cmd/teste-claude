@@ -271,10 +271,9 @@ em { font-style: italic; color: var(--lima); }
   flex-shrink: 0;
 }
 .navbar__logo-img {
-  height: 36px;
+  height: 28px;
   width: auto;
   display: block;
-  /* A logo tem fundo branco — filtro para funcionar no fundo escuro */
   filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(60deg);
 }
 .logo-word { color: var(--creme); }
