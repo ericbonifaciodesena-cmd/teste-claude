@@ -264,16 +264,18 @@ em { font-style: italic; color: var(--lima); }
   padding-inline: var(--sp-md);
 }
 
-/* Logo wordmark */
+/* Logo */
 .navbar__logo {
   display: flex;
-  align-items: baseline;
-  gap: .2em;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-  line-height: 1;
+  align-items: center;
   flex-shrink: 0;
+}
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  /* A logo tem fundo branco — filtro para funcionar no fundo escuro */
+  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(60deg);
 }
 .logo-word { color: var(--creme); }
 .logo-word--accent { color: var(--lima); }
@@ -1265,12 +1267,14 @@ em { font-style: italic; color: var(--lima); }
 
 .footer__logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: .2em;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
+  align-items: center;
   margin-bottom: var(--sp-sm);
+}
+.footer__logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(60deg);
 }
 
 .footer__tagline {
