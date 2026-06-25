@@ -406,9 +406,7 @@ em { font-style: italic; color: var(--lima); }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to right, rgba(6,18,10,.15) 0%, transparent 50%),
-    linear-gradient(to top, rgba(9,32,15,.35) 0%, transparent 30%);
+  background: linear-gradient(to top, rgba(9,32,15,.3) 0%, transparent 25%);
   z-index: 1;
 }
 
