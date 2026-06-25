@@ -277,7 +277,7 @@ em { font-style: italic; color: var(--lima); }
   max-width: none !important;
   max-height: 28px !important;
   object-fit: contain;
-  filter: brightness(0) invert(1) sepia(1) saturate(14) hue-rotate(63deg);
+  filter: none;
 }
 .logo-word { color: var(--creme); }
 .logo-word--accent { color: var(--lima); }
@@ -1279,7 +1279,7 @@ em { font-style: italic; color: var(--lima); }
   max-width: none !important;
   max-height: 44px !important;
   object-fit: contain;
-  filter: brightness(0) invert(1) sepia(1) saturate(14) hue-rotate(63deg);
+  filter: none;
 }
 
 .footer__tagline {
