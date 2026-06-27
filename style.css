@@ -728,7 +728,7 @@ em { font-style: italic; color: var(--lima); }
 /* ── Vídeo drone — full width horizontal ── */
 .drone-video-wrap {
   background: var(--verde-fundo);
-  padding: var(--sp-xl) 0 var(--sp-3xl);
+  padding: 0;
 }
 .drone-video-box {
   /* Container 16:9 full width — vídeo vertical rotacionado para preencher */
