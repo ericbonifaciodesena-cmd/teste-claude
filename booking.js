@@ -13,11 +13,11 @@
 
 const BOOKING_CONFIG = {
   // ── Preços ──────────────────────────────────────────────
-  // Valor em reais por noite (domingo a quinta-feira)
-  valorDiariaBase: 1200,
+  // Valor em reais por noite (segunda a quinta-feira)
+  valorDiariaBase: 700,
 
-  // Valor em reais por noite (sexta e sábado)
-  valorDiariaFimDeSemana: 1500,
+  // Valor em reais por noite (sexta, sábado e domingo)
+  valorDiariaFimDeSemana: 900,
 
   // Estadia mínima em noites
   minimoNoites: 1,
@@ -208,7 +208,7 @@ const ACOMODACOES = [
 
   function isWeekend(date) {
     const d = date.getDay();
-    return d === 5 || d === 6; // sexta ou sábado
+    return d === 0 || d === 5 || d === 6; // domingo, sexta ou sábado
   }
 
   // Verifica se há alguma data indisponível no range
@@ -226,17 +226,22 @@ const ACOMODACOES = [
   function calcPrice(from, to) {
     let total = 0;
     let nights = 0;
+    let nightsWeekend = 0;
+    let nightsWeek = 0;
     const cur = new Date(from);
 
     while (cur < to) {
-      const priceNight = isWeekend(cur)
-        ? BOOKING_CONFIG.valorDiariaFimDeSemana
-        : BOOKING_CONFIG.valorDiariaBase;
-      total += priceNight;
+      if (isWeekend(cur)) {
+        total += BOOKING_CONFIG.valorDiariaFimDeSemana;
+        nightsWeekend++;
+      } else {
+        total += BOOKING_CONFIG.valorDiariaBase;
+        nightsWeek++;
+      }
       nights++;
       cur.setDate(cur.getDate() + 1);
     }
-    return { total, nights };
+    return { total, nights, nightsWeekend, nightsWeek };
   }
 
   // Renderiza o calendário para o mês em state.viewDate
@@ -414,8 +419,13 @@ const ACOMODACOES = [
     const totalEl   = document.getElementById('priceTotal');
 
     if (state.checkIn && state.checkOut) {
-      const { total, nights } = calcPrice(state.checkIn, state.checkOut);
-      breakdown.textContent = `${nights} noite${nights > 1 ? 's' : ''}`;
+      const { total, nights, nightsWeekend, nightsWeek } = calcPrice(state.checkIn, state.checkOut);
+      let parts = [];
+      if (nightsWeek > 0)
+        parts.push(`${nightsWeek} noite${nightsWeek > 1 ? 's' : ''} × R$ ${BOOKING_CONFIG.valorDiariaBase.toLocaleString('pt-BR')}`);
+      if (nightsWeekend > 0)
+        parts.push(`${nightsWeekend} noite${nightsWeekend > 1 ? 's' : ''} × R$ ${BOOKING_CONFIG.valorDiariaFimDeSemana.toLocaleString('pt-BR')} (fim de semana)`);
+      breakdown.textContent = parts.join(' + ');
       totalEl.textContent   = `R$ ${total.toLocaleString('pt-BR')}`;
       preview.hidden = false;
     } else {
