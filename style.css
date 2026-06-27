@@ -406,6 +406,10 @@ em { font-style: italic; color: var(--lima); }
 }
 @media (max-width: 768px) {
   .hero__img { object-position: center top; }
+  .hero__overlay {
+    background:
+      linear-gradient(to bottom, rgba(6,18,10,.55) 0%, rgba(6,18,10,.75) 40%, rgba(6,18,10,.85) 100%);
+  }
 }
 
 .hero__overlay {
