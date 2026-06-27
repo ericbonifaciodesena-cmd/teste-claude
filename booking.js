@@ -109,8 +109,8 @@ const ACOMODACOES = [
       <line x1="10" y1="1" x2="10" y2="4"/>
       <line x1="14" y1="1" x2="14" y2="4"/>
     </svg>`,
-    titulo: 'Café da Manhã na Floresta',
-    descricao: 'Café da manhã servido na sua bolha ao amanhecer. Produtos locais e orgânicos da região da Mata Atlântica.',
+    titulo: 'Café da Manhã',
+    descricao: 'Comece o dia com um café da manhã completo, servido na privacidade da sua bubble. Pães, frutas, bebidas e uma seleção de itens preparados para tornar o despertar ainda mais especial.',
   },
 ];
 
