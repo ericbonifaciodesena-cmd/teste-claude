@@ -725,33 +725,26 @@ em { font-style: italic; color: var(--lima); }
   .galeria__caption { opacity: 1; transform: none; }
 }
 
-/* ── Vídeo drone vertical ── */
+/* ── Vídeo drone — full width horizontal ── */
 .drone-video-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--sp-xl) 0 var(--sp-3xl);
   background: var(--verde-fundo);
+  padding: var(--sp-xl) 0 var(--sp-3xl);
 }
-/* Container com dimensões de retrato */
 .drone-video-box {
-  width: min(340px, 85vw);
-  aspect-ratio: 9/16;
+  /* Container 16:9 full width — vídeo vertical rotacionado para preencher */
+  width: 100%;
+  aspect-ratio: 16/9;
   overflow: hidden;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-md);
   position: relative;
 }
-/* Vídeo landscape rotacionado para preencher o container portrait */
 .drone-video {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* troca largura/altura para preencher o container depois da rotação */
-  height: 100%;
-  width: calc(100% * 16 / 9);
+  /* Vídeo 9:16 → rotaciona 90deg → fica 16:9; ajusta tamanho para cobrir */
+  height: 100vw;
+  width: calc(100vw * 9 / 16);
   transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center center;
   object-fit: cover;
 }
 
