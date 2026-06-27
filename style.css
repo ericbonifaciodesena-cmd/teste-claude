@@ -404,6 +404,9 @@ em { font-style: italic; color: var(--lima); }
   object-fit: cover;
   object-position: center 20%;
 }
+@media (max-width: 768px) {
+  .hero__img { object-position: center 5%; }
+}
 
 .hero__overlay {
   position: absolute;
