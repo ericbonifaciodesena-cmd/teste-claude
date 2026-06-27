@@ -686,6 +686,7 @@ em { font-style: italic; color: var(--lima); }
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  border: 2px solid var(--lima);
   transition: transform var(--ease), box-shadow var(--ease);
 }
 .galeria__item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
