@@ -135,11 +135,14 @@ em { font-style: italic; color: var(--lima); }
   box-shadow: var(--shadow-lima);
 }
 .btn--ghost {
-  background: transparent;
-  color: var(--creme);
-  border: 1.5px solid rgba(240,235,224,.4);
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .btn--ghost:hover, .btn--ghost:focus-visible {
+  background: rgba(255,255,255,.2);
   border-color: var(--lima);
   color: var(--lima);
   transform: translateY(-2px);
@@ -244,15 +247,14 @@ em { font-style: italic; color: var(--lima); }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 800;
-  padding: var(--sp-md) 0;
-  transition: background var(--ease), padding var(--ease), backdrop-filter var(--ease), box-shadow var(--ease);
+  padding: .85rem 0;
+  background: var(--verde-fundo);
+  box-shadow: 0 2px 20px rgba(0,0,0,.4);
+  transition: padding var(--ease), box-shadow var(--ease);
 }
 .navbar.scrolled {
-  background: rgba(9,32,15,.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: .7rem 0;
-  box-shadow: 0 2px 24px rgba(0,0,0,.45);
+  padding: .65rem 0;
+  box-shadow: 0 2px 28px rgba(0,0,0,.55);
 }
 .navbar__inner {
   display: flex;
@@ -400,14 +402,17 @@ em { font-style: italic; color: var(--lima); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
-  opacity: 1;
+  object-position: center 40%;
+  transform: scale(0.85);
+  transform-origin: center center;
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(9,32,15,.4) 0%, transparent 10%);
+  background:
+    linear-gradient(135deg, rgba(6,18,10,.72) 0%, rgba(6,18,10,.45) 40%, transparent 70%),
+    linear-gradient(to top, rgba(6,18,10,.65) 0%, transparent 35%);
   z-index: 1;
 }
 
@@ -436,15 +441,16 @@ em { font-style: italic; color: var(--lima); }
 }
 .hero__eyebrow svg { opacity: .8; }
 
-.hero__headline { color: var(--creme); margin-bottom: var(--sp-md); }
+.hero__headline { color: #fff; margin-bottom: var(--sp-md); text-shadow: 0 2px 16px rgba(0,0,0,.4); }
 
 .hero__sub {
   font-size: clamp(.95rem, 2vw, 1.15rem);
-  color: var(--txt-sec);
+  color: rgba(255,255,255,.88);
   max-width: 500px;
   margin-bottom: var(--sp-lg);
   line-height: 1.75;
   font-weight: 400;
+  text-shadow: 0 1px 8px rgba(0,0,0,.35);
 }
 
 .hero__actions {
