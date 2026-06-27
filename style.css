@@ -1035,8 +1035,7 @@ em { font-style: italic; color: var(--lima); }
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
-  padding: 4px;
+  width: 100%;
 }
 .calendar-day-name {
   text-align: center;
@@ -1046,18 +1045,18 @@ em { font-style: italic; color: var(--lima); }
   text-transform: uppercase;
   color: var(--txt-sec);
   opacity: .6;
-  padding: .5rem .1rem;
+  padding: .6rem .2rem;
+  border-bottom: 1px solid rgba(255,255,255,.04);
 }
 .cal-day {
   aspect-ratio: 1;
-  min-height: 36px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: .82rem;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 4px;
   transition: background var(--ease), color var(--ease);
   color: var(--creme);
 }
