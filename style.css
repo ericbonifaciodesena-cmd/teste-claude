@@ -673,10 +673,11 @@ em { font-style: italic; color: var(--lima); }
   background: var(--verde-fundo);
 }
 
+/* Grid: coluna esquerda mais larga (foto tall) + 2 colunas iguais */
 .galeria__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: var(--sp-sm);
 }
 
@@ -690,27 +691,16 @@ em { font-style: italic; color: var(--lima); }
 .galeria__item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
 .galeria__item:hover .galeria__caption { opacity: 1; transform: translateY(0); }
 
-.galeria__item--grande { grid-row: span 2; }
-.galeria__item--wide   { grid-column: span 2; }
+/* Foto tall: ocupa 2 linhas na coluna esquerda */
+.galeria__item--tall { grid-row: span 2; }
 
-/* Vídeo na galeria */
-.galeria__item--video { overflow: hidden; }
-.galeria__video-wrap {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.galeria__video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* vídeo gravado em landscape mas exibido em moldura wide — cobre com crop */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%) rotate(90deg) scale(1.8);
-  transform-origin: center center;
-}
+/* Linha 2: as 2 últimas fotos ficam nas 2 últimas colunas centralizadas */
+.galeria__item:nth-child(4) { grid-column: 2; }
+.galeria__item:nth-child(5) { grid-column: 3; }
+
+/* Garante aspect-ratio uniforme nos itens menores */
+.galeria__item:not(.galeria__item--tall) { aspect-ratio: 4/3; }
+.galeria__item--tall { aspect-ratio: 3/4; }
 
 .galeria__caption {
   position: absolute;
@@ -727,14 +717,42 @@ em { font-style: italic; color: var(--lima); }
   transition: opacity var(--ease), transform var(--ease);
 }
 
-@media (min-width: 768px) {
-  .galeria__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-sm); }
-}
 @media (max-width: 640px) {
-  .galeria__grid { grid-template-columns: 1fr; }
-  .galeria__item--grande { grid-row: auto; }
-  .galeria__item--wide   { grid-column: auto; }
+  .galeria__grid { grid-template-columns: 1fr 1fr; }
+  .galeria__item--tall { grid-column: span 2; grid-row: auto; aspect-ratio: 16/9; }
+  .galeria__item:nth-child(4),
+  .galeria__item:nth-child(5) { grid-column: auto; }
   .galeria__caption { opacity: 1; transform: none; }
+}
+
+/* ── Vídeo drone vertical ── */
+.drone-video-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--sp-xl) 0 var(--sp-3xl);
+  background: var(--verde-fundo);
+}
+/* Container com dimensões de retrato */
+.drone-video-box {
+  width: min(340px, 85vw);
+  aspect-ratio: 9/16;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+/* Vídeo landscape rotacionado para preencher o container portrait */
+.drone-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* troca largura/altura para preencher o container depois da rotação */
+  height: 100%;
+  width: calc(100% * 16 / 9);
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center center;
+  object-fit: cover;
 }
 
 /* ── 14. O QUE INCLUI / ACOMODAÇÕES ────────────────────────── */
