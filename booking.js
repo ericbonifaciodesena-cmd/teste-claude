@@ -55,8 +55,8 @@ const ACOMODACOES = [
       <path d="M7 9a5 5 0 0 1 5-3"/>
       <path d="M17 15a5 5 0 0 1-5 3"/>
     </svg>`,
-    titulo: 'Bolha Transparente',
-    descricao: 'Estrutura de acrílico cristalino com vista 360° para a floresta. Temperatura controlada para conforto em todas as estações.',
+    titulo: 'Bubble Transparente',
+    descricao: 'Durma sob um céu estrelado e desperte cercado pela Mata Atlântica, com conforto e privacidade.',
   },
   {
     id: 'cama',
