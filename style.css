@@ -542,6 +542,16 @@ em { font-style: italic; color: var(--lima); }
   line-height: 1.65;
   opacity: .9;
 }
+.manifesto-sub {
+  font-size: clamp(.9rem, 1.8vw, 1.05rem);
+  color: rgba(240,235,224,.75);
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-top: var(--sp-md);
+  line-height: 1.75;
+  font-weight: 400;
+}
 
 /* ── 12. A EXPERIÊNCIA ──────────────────────────────────────── */
 .experiencia {
