@@ -579,16 +579,30 @@ const ACOMODACOES = [
   /* ── CONFIRMAÇÃO FINAL ── */
   function submitBooking() {
     const { total, nights } = calcPrice(state.checkIn, state.checkOut);
-    const name = document.getElementById('guestName').value;
+    const name    = document.getElementById('guestName').value;
+    const email   = document.getElementById('guestEmail').value;
+    const phone   = document.getElementById('guestPhone').value;
+    const guests  = document.getElementById('guestGuests').value;
+    const notes   = document.getElementById('guestNotes').value.trim();
 
-    // Aqui você integraria com um backend ou serviço de e-mail.
-    // Por enquanto, apenas exibe a tela de sucesso.
-    const summaryEl = document.getElementById('successSummary');
-    if (summaryEl) {
-      summaryEl.textContent =
-        `${fmtBR(state.checkIn)} → ${fmtBR(state.checkOut)} · ` +
-        `${nights} noite${nights > 1 ? 's' : ''} · R$ ${total.toLocaleString('pt-BR')}`;
-    }
+    const msg = [
+      `Olá! Gostaria de reservar a Sora Bubble. 🌿`,
+      ``,
+      `*Check-in:* ${fmtBR(state.checkIn)}`,
+      `*Check-out:* ${fmtBR(state.checkOut)}`,
+      `*Estadia:* ${nights} noite${nights > 1 ? 's' : ''}`,
+      `*Hóspedes:* ${guests} pessoa(s)`,
+      ``,
+      `*Nome:* ${name}`,
+      `*E-mail:* ${email}`,
+      `*Telefone:* ${phone}`,
+      ``,
+      `*Total estimado:* R$ ${total.toLocaleString('pt-BR')}`,
+      notes ? `\n*Observações:* ${notes}` : '',
+    ].filter(l => l !== undefined && !(l === '' && false)).join('\n');
+
+    const waUrl = `https://wa.me/5548984484135?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
 
     goToStep('success');
   }
