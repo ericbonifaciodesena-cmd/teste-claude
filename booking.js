@@ -586,7 +586,7 @@ const ACOMODACOES = [
     const notes   = document.getElementById('guestNotes').value.trim();
 
     const msg = [
-      `Olá! Gostaria de reservar a Sora Bubble. 🌿`,
+      `Olá! Gostaria de reservar uma experiência na Sora Bubble. 🌿`,
       ``,
       `*Check-in:* ${fmtBR(state.checkIn)}`,
       `*Check-out:* ${fmtBR(state.checkOut)}`,
