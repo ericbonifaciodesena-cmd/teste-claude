@@ -579,7 +579,6 @@ em { font-style: italic; color: var(--lima); }
 
 .foto-stack__main {
   border-radius: var(--r-xl);
-  border: 2px solid var(--lima);
   --ratio: 3/4;
 }
 
@@ -589,7 +588,6 @@ em { font-style: italic; color: var(--lima); }
   right: -1.5rem;
   width: 45%;
   border-radius: var(--r-lg);
-  border: 2px solid var(--lima);
   box-shadow: var(--shadow-card);
   --ratio: 1/1;
 }
@@ -704,7 +702,6 @@ em { font-style: italic; color: var(--lima); }
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border: 2px solid var(--lima);
   transition: transform var(--ease), box-shadow var(--ease);
 }
 .galeria__item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
