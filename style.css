@@ -157,7 +157,6 @@ em { font-style: italic; color: var(--lima); }
 .img-ph {
   position: relative;
   background: var(--verde-medio);
-  border: 1.5px dashed rgba(114,217,38,.25);
   border-radius: var(--r-lg);
   overflow: hidden;
   aspect-ratio: var(--ratio, 4/3);
