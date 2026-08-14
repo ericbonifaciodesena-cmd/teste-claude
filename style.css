@@ -411,16 +411,20 @@ em { font-style: italic; color: var(--lima); }
   }
   .hero { align-items: stretch; }
   .hero__content {
-    padding-top: calc(var(--sp-3xl) + 2rem);
+    padding-top: calc(var(--sp-3xl) + 1rem);
     padding-bottom: var(--sp-xl);
     display: flex;
     flex-direction: column;
     flex: 1;
   }
-  .hero__eyebrow { margin-bottom: var(--sp-sm); }
-  .hero__headline { margin-bottom: 0; }
-  .hero__spacer { flex: 1; min-height: 2rem; }
-  .hero__sub { margin-top: var(--sp-md); }
+  .hero__eyebrow { margin-bottom: .35rem; }
+  .hero__headline {
+    margin-bottom: 0;
+    font-size: clamp(1.9rem, 8vw, 2.8rem);
+    line-height: 1.1;
+  }
+  .hero__spacer { flex: 1; min-height: 3rem; }
+  .hero__sub { margin-top: var(--sp-sm); margin-bottom: var(--sp-md); }
 }
 
 .hero__overlay {
