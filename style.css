@@ -409,15 +409,17 @@ em { font-style: italic; color: var(--lima); }
     background:
       linear-gradient(to bottom, rgba(6,18,10,.7) 0%, rgba(6,18,10,.3) 30%, rgba(6,18,10,.2) 55%, rgba(6,18,10,.75) 80%, rgba(6,18,10,.92) 100%);
   }
+  .hero { align-items: stretch; }
   .hero__content {
     padding-top: calc(var(--sp-3xl) + 2rem);
+    padding-bottom: var(--sp-xl);
     display: flex;
     flex-direction: column;
-    min-height: 85vh;
+    flex: 1;
   }
   .hero__eyebrow { margin-bottom: var(--sp-sm); }
   .hero__headline { margin-bottom: 0; }
-  .hero__spacer { flex: 1; }
+  .hero__spacer { flex: 1; min-height: 2rem; }
   .hero__sub { margin-top: var(--sp-md); }
 }
 
