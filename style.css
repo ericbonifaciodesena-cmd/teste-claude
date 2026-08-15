@@ -443,7 +443,7 @@ em { font-style: italic; color: var(--lima); }
   }
   .hero__spacer { flex: 1; }
   .hero__bottom {
-    padding: var(--sp-sm) var(--sp-md) calc(var(--sp-lg) + .5rem);
+    padding: var(--sp-sm) var(--sp-md) calc(var(--sp-2xl) + 1rem);
   }
   .hero__eyebrow { margin-bottom: .25rem; }
   .hero__headline {
