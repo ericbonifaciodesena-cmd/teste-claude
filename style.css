@@ -446,7 +446,7 @@ em { font-style: italic; color: var(--lima); }
     padding: var(--sp-sm) var(--sp-md) calc(var(--sp-lg) + .5rem);
     margin-top: 1.5rem;
   }
-  .hero__eyebrow { margin-bottom: .25rem; }
+  .hero__eyebrow { margin-bottom: .25rem; color: #fff; }
   .hero__headline {
     margin-bottom: 0;
     font-size: clamp(1.8rem, 7.5vw, 2.6rem);
