@@ -724,7 +724,6 @@ em { font-style: italic; color: var(--lima); }
 .galeria__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: var(--sp-sm);
 }
 
@@ -765,7 +764,7 @@ em { font-style: italic; color: var(--lima); }
 }
 
 @media (max-width: 640px) {
-  .galeria__grid { grid-template-columns: 1fr 1fr; }
+  .galeria__grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .galeria__item--tall { grid-column: span 2; grid-row: auto; aspect-ratio: 16/9; }
   .galeria__item:nth-child(4),
   .galeria__item:nth-child(5) { grid-column: auto; }
