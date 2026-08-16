@@ -144,8 +144,8 @@
   }
 
   /* ── 7. LIGHTBOX ── */
-  const lightbox     = document.getElementById('lightbox');
-  const lightboxImg  = document.getElementById('lightbox-img');
+  const lightbox      = document.getElementById('lightbox');
+  const lightboxImg   = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
   function openLightbox(src, alt) {
@@ -153,27 +153,43 @@
     lightboxImg.alt = alt || '';
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    lightboxImg.style.transform = 'none';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active');
-    lightboxImg.src = '';
     document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 300);
   }
 
-  // Attach to all clickable photos (img-ph containers and hero img)
-  document.querySelectorAll('.img-ph img, .foto-stack__main img, .foto-stack__float img').forEach(img => {
+  // Attach click to every photo on the page
+  document.querySelectorAll('.img-ph img, .foto-stack__main img, .foto-stack__float img, .galeria__item img').forEach(img => {
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(img.currentSrc || img.src, img.alt);
+    });
   });
 
+  // Close on backdrop click
   lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) closeLightbox();
+    if (e.target === lightbox) closeLightbox();
   });
   lightboxClose.addEventListener('click', closeLightbox);
 
+  // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
   });
+
+  // Swipe down to close (touch)
+  let touchStartY = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (dy > 80) closeLightbox();
+  }, { passive: true });
 
 })();
