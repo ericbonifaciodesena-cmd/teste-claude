@@ -632,10 +632,8 @@ em { font-style: italic; color: var(--lima); }
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  background: rgba(9,32,15,.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(114,217,38,.3);
+  background: var(--verde-fundo);
+  border: 1px solid rgba(114,217,38,.2);
   border-radius: var(--r-pill);
   padding: .45rem .9rem;
   font-size: .72rem;
