@@ -162,18 +162,23 @@
     setTimeout(() => { lightboxImg.src = ''; }, 300);
   }
 
-  // Attach click to every photo on the page
-  document.querySelectorAll('.img-ph img, .foto-stack__main img, .foto-stack__float img, .galeria__item img').forEach(img => {
+  // Estilo cursor nas fotos
+  document.querySelectorAll('.img-ph img, .galeria__item img, .foto-stack__main img, .foto-stack__float img').forEach(img => {
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openLightbox(img.currentSrc || img.src, img.alt);
-    });
   });
 
-  // Close on backdrop click
+  // Delegação de eventos — clique em qualquer img dentro de foto
+  document.addEventListener('click', (e) => {
+    if (lightbox.classList.contains('active')) return;
+    const t = e.target;
+    if (t.tagName !== 'IMG') return;
+    const inPhoto = t.closest('.img-ph, .galeria__item, .foto-stack__main, .foto-stack__float');
+    if (inPhoto) openLightbox(t.currentSrc || t.src, t.alt);
+  });
+
+  // Fechar ao clicar no fundo
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
+    if (e.target !== lightboxImg) closeLightbox();
   });
   lightboxClose.addEventListener('click', closeLightbox);
 
