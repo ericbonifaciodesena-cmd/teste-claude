@@ -738,13 +738,12 @@ em { font-style: italic; color: var(--lima); }
 .galeria__item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
 .galeria__item:hover .galeria__caption { opacity: 1; transform: translateY(0); }
 
-/* Foto tall: ocupa as 2 linhas na coluna esquerda */
+/* Foto tall: ocupa 2 linhas */
 .galeria__item--tall { grid-row: span 2; }
 
-
-/* Aspect-ratio uniforme — tall alinha com a soma das 2 linhas */
+/* Aspect-ratio */
 .galeria__item:not(.galeria__item--tall) { aspect-ratio: 4/3; }
-.galeria__item--tall { aspect-ratio: unset; }
+.galeria__item--tall { aspect-ratio: 2/3; }
 
 .galeria__caption {
   position: absolute;
@@ -764,8 +763,6 @@ em { font-style: italic; color: var(--lima); }
 @media (max-width: 640px) {
   .galeria__grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .galeria__item--tall { grid-column: span 2; grid-row: auto; aspect-ratio: 16/9; }
-  .galeria__item:nth-child(4),
-  .galeria__item:nth-child(5) { grid-column: auto; }
   .galeria__caption { opacity: 1; transform: none; }
 }
 
