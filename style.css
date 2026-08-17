@@ -1062,6 +1062,7 @@ em { font-style: italic; color: var(--lima); }
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  align-items: start;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -1085,8 +1086,8 @@ em { font-style: italic; color: var(--lima); }
 }
 .cal-day {
   aspect-ratio: 1;
+  width: 100%;
   min-width: 0;
-  max-width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
