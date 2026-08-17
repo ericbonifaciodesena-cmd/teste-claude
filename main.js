@@ -167,13 +167,13 @@
     img.style.cursor = 'zoom-in';
   });
 
-  // Delegação de eventos — clique em qualquer img dentro de foto
+  // Delegação de eventos — clique no container da foto (funciona mesmo com overlay)
   document.addEventListener('click', (e) => {
     if (lightbox.classList.contains('active')) return;
-    const t = e.target;
-    if (t.tagName !== 'IMG') return;
-    const inPhoto = t.closest('.img-ph, .galeria__item, .foto-stack__main, .foto-stack__float');
-    if (inPhoto) openLightbox(t.currentSrc || t.src, t.alt);
+    const container = e.target.closest('.galeria__item, .foto-stack__main, .foto-stack__float');
+    if (!container) return;
+    const img = container.querySelector('img');
+    if (img) openLightbox(img.currentSrc || img.src, img.alt);
   });
 
   // Fechar ao clicar no fundo
