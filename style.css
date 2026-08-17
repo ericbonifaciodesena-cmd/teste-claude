@@ -1084,9 +1084,6 @@ em { font-style: italic; color: var(--lima); }
   border-bottom: 1px solid rgba(255,255,255,.04);
 }
 .cal-day {
-  aspect-ratio: 1;
-  align-self: start;
-  width: 100%;
   min-width: 0;
   padding: 0;
   border: none;

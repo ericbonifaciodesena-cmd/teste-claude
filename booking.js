@@ -352,6 +352,18 @@ const ACOMODACOES = [
     container.querySelectorAll('.cal-day:not(.past):not(.unavailable):not(.empty)').forEach(btn => {
       btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
     });
+
+    // Força células quadradas após layout (aspect-ratio em <button> é instável em alguns browsers)
+    requestAnimationFrame(function() {
+      var ref = container.querySelector('.calendar-day-name');
+      if (ref && ref.offsetWidth > 0) {
+        var w = ref.offsetWidth;
+        container.querySelectorAll('.cal-day').forEach(function(d) {
+          d.style.height = w + 'px';
+          d.style.width  = w + 'px';
+        });
+      }
+    });
   }
 
   // Lida com a seleção de uma data no calendário
