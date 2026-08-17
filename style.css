@@ -979,6 +979,8 @@ em { font-style: italic; color: var(--lima); }
   padding: var(--sp-lg) var(--sp-md);
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(114,217,38,.1);
+  overflow: hidden;
+  max-width: 100%;
 }
 .booking-panel { display: none; }
 .booking-panel--active { display: block; }
@@ -1058,6 +1060,13 @@ em { font-style: italic; color: var(--lima); }
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.calendar-wrap {
+  overflow: hidden;
+  width: 100%;
 }
 .calendar-day-name {
   text-align: center;
@@ -1073,6 +1082,8 @@ em { font-style: italic; color: var(--lima); }
 .cal-day {
   aspect-ratio: 1;
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
