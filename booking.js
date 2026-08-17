@@ -353,17 +353,17 @@ const ACOMODACOES = [
       btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
     });
 
-    // Força células quadradas após layout
+    // Força células quadradas após layout completo
     setTimeout(function() {
       var grid = container.querySelector('.calendar-grid');
       if (!grid) return;
-      var w = Math.floor(grid.offsetWidth / 7);
+      var w = Math.floor(grid.getBoundingClientRect().width / 7);
       if (w > 0) {
         container.querySelectorAll('.cal-day').forEach(function(d) {
           d.style.height = w + 'px';
         });
       }
-    }, 0);
+    }, 100);
   }
 
   // Lida com a seleção de uma data no calendário

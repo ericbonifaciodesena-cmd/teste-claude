@@ -162,13 +162,13 @@
             <!--
               FOTO REAL: foto-experiencia-1.jpg (3:4, bolha de dia na floresta)
             -->
-            <div class="foto-stack__main img-ph img-ph--vertical">
+            <div class="foto-stack__main img-ph img-ph--vertical" onclick="soraLB(this)">
               <img src="soorabubble_16.jpg.jpg" alt="Domo de dia na Mata Atlântica" />
             </div>
             <!--
               FOTO REAL: foto-experiencia-2.jpg (1:1, detalhe jacuzzi)
             -->
-            <div class="foto-stack__float img-ph img-ph--square">
+            <div class="foto-stack__float img-ph img-ph--square" onclick="soraLB(this)">
               <img src="soorabubble_195.jpg" alt="Jacuzzi ao ar livre" />
             </div>
             <div class="foto-stack__tag">
@@ -268,73 +268,72 @@
       <div class="galeria__grid reveal">
 
         <!-- Linha 1: foto grande à esquerda + 2 menores à direita -->
-        <div class="galeria__item galeria__item--tall img-ph">
+        <div class="galeria__item galeria__item--tall img-ph" onclick="soraLB(this)">
           <img src="soorabubble_170.jpg.jpeg" alt="Domo à noite — céu estrelado" />
           <div class="galeria__caption">Telescópio</div>
         </div>
 
-        <div class="galeria__item galeria__item--tall img-ph">
+        <div class="galeria__item galeria__item--tall img-ph" onclick="soraLB(this)">
           <img src="IMG_2240.DNG.jpg" alt="Noite estrelada na Mata Atlântica" />
           <div class="galeria__caption">Noite Estrelada</div>
         </div>
 
-        <div class="galeria__item galeria__item--tall img-ph">
+        <div class="galeria__item galeria__item--tall img-ph" onclick="soraLB(this)">
           <img src="IMG_4487.JPG.jpg" alt="Ambiente da bubble" />
           <div class="galeria__caption">Ambiente</div>
         </div>
 
-        <div class="galeria__item galeria__item--tall img-ph">
+        <div class="galeria__item galeria__item--tall img-ph" onclick="soraLB(this)">
           <img src="IMG_0368.jpg" alt="Experiência na Sora Bubble" />
           <div class="galeria__caption">Experiência</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_4154.jpg" alt="Bubble transparente na Mata Atlântica" />
           <div class="galeria__caption">Bubble</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_0471.jpeg" alt="Jacuzzi ao ar livre na mata" style="object-position: center 70%;" />
           <div class="galeria__caption">Jacuzzi Aquecida</div>
         </div>
 
-        <!-- Linha 2: 2 fotos iguais centralizadas -->
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="soorabubble_162.jpg" alt="Firepit à noite" />
           <div class="galeria__caption">Fogueira</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_3194.jpg" alt="Café da manhã orgânico na floresta" style="object-position: center bottom;" />
           <div class="galeria__caption">Café da Manhã</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="copy_AC6339CA-19CF-4070-8C32-CAFCD491F5A7.jpeg" alt="Cinema ao ar livre" />
           <div class="galeria__caption">Cinema</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_1922.JPG.jpg" alt="Quarto da bubble" />
           <div class="galeria__caption">Quarto</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_0275.jpg" alt="Trilha na Mata Atlântica" />
           <div class="galeria__caption">Trilha</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_0453.jpg" alt="Jacuzzi aquecida" />
           <div class="galeria__caption">Jacuzzi</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_3323.jpg" alt="Cozinha da Sora Bubble" />
           <div class="galeria__caption">Cozinha</div>
         </div>
 
-        <div class="galeria__item img-ph">
+        <div class="galeria__item img-ph" onclick="soraLB(this)">
           <img src="IMG_0430.jpg" alt="Rede suspensa na Mata Atlântica" />
           <div class="galeria__caption">Rede Suspensa</div>
         </div>
@@ -687,6 +686,33 @@
     </div>
   </footer>
 
+  <script>
+    function soraLB(el) {
+      var img = el.querySelector('img');
+      if (!img) return;
+      var lb  = document.getElementById('lightbox');
+      var lbi = document.getElementById('lightbox-img');
+      lbi.src = img.src;
+      lbi.alt = img.alt || '';
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var lb  = document.getElementById('lightbox');
+      var lbi = document.getElementById('lightbox-img');
+      var lbc = document.getElementById('lightbox-close');
+      function closeLB() {
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(function(){ lbi.src = ''; }, 300);
+      }
+      lb.addEventListener('click', function(e) { if (e.target !== lbi) closeLB(); });
+      lbc.addEventListener('click', closeLB);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLB();
+      });
+    });
+  </script>
   <script src="main.js"></script>
   <script src="booking.js"></script>
 
