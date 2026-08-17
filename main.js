@@ -162,29 +162,18 @@
     setTimeout(() => { lightboxImg.src = ''; }, 300);
   }
 
-  // Lightbox: listener direto em cada img + delegation de fallback
-  function attachLightbox() {
-    document.querySelectorAll(
-      '.galeria__item img, .foto-stack__main img, .foto-stack__float img'
-    ).forEach(function(img) {
-      img.style.cursor = 'zoom-in';
-      img.style.pointerEvents = 'auto';
-      img.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openLightbox(this.currentSrc || this.src, this.alt);
-      });
-    });
-
-    // fallback: clique no container caso img não pegue
-    document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (lightbox.classList.contains('active')) return;
-        var img = el.querySelector('img');
-        if (img) openLightbox(img.currentSrc || img.src, img.alt);
-      });
-    });
-  }
-  attachLightbox();
+  // Lightbox: onclick direto em cada foto
+  document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(function(el) {
+    el.style.cursor = 'zoom-in';
+    el.onclick = function() {
+      var img = el.querySelector('img');
+      if (!img) return;
+      lightboxImg.src = img.getAttribute('src');
+      lightboxImg.alt = img.alt || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+  });
 
   // Fechar ao clicar no fundo
   lightbox.addEventListener('click', (e) => {

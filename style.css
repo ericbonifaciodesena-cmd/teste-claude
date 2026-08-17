@@ -1062,7 +1062,6 @@ em { font-style: italic; color: var(--lima); }
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  align-items: start;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -1085,8 +1084,12 @@ em { font-style: italic; color: var(--lima); }
   border-bottom: 1px solid rgba(255,255,255,.04);
 }
 .cal-day {
+  aspect-ratio: 1;
+  align-self: start;
   width: 100%;
   min-width: 0;
+  padding: 0;
+  border: none;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1459,7 +1462,7 @@ em { font-style: italic; color: var(--lima); }
 
 /* ── LIGHTBOX ── */
 #lightbox {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -1467,9 +1470,13 @@ em { font-style: italic; color: var(--lima); }
   align-items: center;
   justify-content: center;
   cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
 }
 #lightbox.active {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 #lightbox-img {
   max-width: 100vw;

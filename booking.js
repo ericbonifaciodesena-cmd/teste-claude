@@ -338,13 +338,6 @@ const ACOMODACOES = [
       </div>
     `;
 
-    // Força células quadradas: altura da linha = largura da coluna
-    const grid = container.querySelector('.calendar-grid');
-    if (grid) {
-      const cellW = Math.floor(grid.offsetWidth / 7);
-      grid.style.gridAutoRows = cellW + 'px';
-    }
-
     // Eventos de navegação
     document.getElementById('calPrev').addEventListener('click', () => {
       state.viewDate = new Date(year, month - 1, 1);
