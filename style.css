@@ -740,9 +740,6 @@ em { font-style: italic; color: var(--lima); }
 /* Foto tall: ocupa as 2 linhas na coluna esquerda */
 .galeria__item--tall { grid-row: span 2; }
 
-/* Linha 2: as 2 últimas fotos ficam nas 2 últimas colunas */
-.galeria__item:nth-child(4) { grid-column: 2; }
-.galeria__item:nth-child(5) { grid-column: 3; }
 
 /* Aspect-ratio uniforme — tall alinha com a soma das 2 linhas */
 .galeria__item:not(.galeria__item--tall) { aspect-ratio: 4/3; }
