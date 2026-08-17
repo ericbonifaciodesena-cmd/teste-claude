@@ -758,6 +758,7 @@ em { font-style: italic; color: var(--lima); }
   opacity: 0;
   transform: translateY(4px);
   transition: opacity var(--ease), transform var(--ease);
+  pointer-events: none;
 }
 
 @media (max-width: 640px) {
@@ -1034,6 +1035,8 @@ em { font-style: italic; color: var(--lima); }
   border-radius: var(--r-md);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.06);
+  width: 100%;
+  box-sizing: border-box;
 }
 .calendar-header {
   display: flex;
@@ -1062,6 +1065,7 @@ em { font-style: italic; color: var(--lima); }
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .calendar-wrap {
@@ -1081,12 +1085,13 @@ em { font-style: italic; color: var(--lima); }
 }
 .cal-day {
   aspect-ratio: 1;
-  width: 100%;
   min-width: 0;
+  max-width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   font-size: .82rem;
   font-weight: 600;
   cursor: pointer;

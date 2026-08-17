@@ -163,37 +163,17 @@
   }
 
   // Estilo cursor nas fotos
-  document.querySelectorAll('.img-ph img, .galeria__item img, .foto-stack__main img, .foto-stack__float img').forEach(img => {
-    img.style.cursor = 'zoom-in';
+  document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(el => {
+    el.style.cursor = 'zoom-in';
   });
 
   // Abre lightbox em qualquer container de foto
   function attachLightbox() {
     document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(container => {
-      let touchMoved = false;
-
-      container.addEventListener('touchstart', () => {
-        touchMoved = false;
-      }, { passive: true });
-
-      container.addEventListener('touchmove', () => {
-        touchMoved = true;
-      }, { passive: true });
-
-      container.addEventListener('touchend', (e) => {
-        if (touchMoved) return;
-        e.preventDefault();
+      container.addEventListener('click', (e) => {
+        e.stopPropagation();
         const img = container.querySelector('img');
-        if (img && !lightbox.classList.contains('active')) {
-          openLightbox(img.currentSrc || img.src, img.alt);
-        }
-      });
-
-      container.addEventListener('click', () => {
-        const img = container.querySelector('img');
-        if (img && !lightbox.classList.contains('active')) {
-          openLightbox(img.currentSrc || img.src, img.alt);
-        }
+        if (img) openLightbox(img.currentSrc || img.src, img.alt);
       });
     });
   }
