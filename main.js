@@ -162,19 +162,29 @@
     setTimeout(() => { lightboxImg.src = ''; }, 300);
   }
 
-  // Estilo cursor nas fotos
-  document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(el => {
-    el.style.cursor = 'zoom-in';
-  });
+  // Lightbox: listener direto em cada img + delegation de fallback
+  function attachLightbox() {
+    document.querySelectorAll(
+      '.galeria__item img, .foto-stack__main img, .foto-stack__float img'
+    ).forEach(function(img) {
+      img.style.cursor = 'zoom-in';
+      img.style.pointerEvents = 'auto';
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openLightbox(this.currentSrc || this.src, this.alt);
+      });
+    });
 
-  // Abre lightbox — event delegation no document para máxima compatibilidade
-  document.addEventListener('click', function(e) {
-    if (lightbox.classList.contains('active')) return;
-    const item = e.target.closest('.galeria__item, .foto-stack__main, .foto-stack__float');
-    if (!item) return;
-    const img = item.querySelector('img');
-    if (img) openLightbox(img.currentSrc || img.src, img.alt);
-  });
+    // fallback: clique no container caso img não pegue
+    document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(function(el) {
+      el.addEventListener('click', function() {
+        if (lightbox.classList.contains('active')) return;
+        var img = el.querySelector('img');
+        if (img) openLightbox(img.currentSrc || img.src, img.alt);
+      });
+    });
+  }
+  attachLightbox();
 
   // Fechar ao clicar no fundo
   lightbox.addEventListener('click', (e) => {
