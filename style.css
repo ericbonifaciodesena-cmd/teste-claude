@@ -1459,7 +1459,7 @@ em { font-style: italic; color: var(--lima); }
 
 /* ── LIGHTBOX ── */
 #lightbox {
-  display: flex;
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -1467,13 +1467,9 @@ em { font-style: italic; color: var(--lima); }
   align-items: center;
   justify-content: center;
   cursor: zoom-out;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s;
 }
 #lightbox.active {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
 }
 #lightbox-img {
   max-width: 100vw;

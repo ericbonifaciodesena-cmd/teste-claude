@@ -165,7 +165,8 @@
   // Lightbox: onclick direto em cada foto
   document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(function(el) {
     el.style.cursor = 'zoom-in';
-    el.onclick = function() {
+    el.onclick = function(e) {
+      e.stopPropagation();
       var img = el.querySelector('img');
       if (!img) return;
       lightboxImg.src = img.getAttribute('src');
