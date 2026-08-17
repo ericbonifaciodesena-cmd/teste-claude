@@ -672,12 +672,12 @@ em { font-style: italic; color: var(--lima); }
   align-items: flex-start;
   gap: .75rem;
   padding: var(--sp-sm);
-  background: var(--lima-muted);
-  border: 1px solid rgba(114,217,38,.15);
+  background: var(--verde-medio);
+  border: none;
   border-radius: var(--r-md);
-  transition: background var(--ease), border-color var(--ease);
+  transition: background var(--ease);
 }
-.diferencial:hover { background: var(--lima-muted-hover); border-color: rgba(114,217,38,.3); }
+.diferencial:hover { background: #1e4a2e; }
 
 .diferencial__icon {
   flex-shrink: 0;
