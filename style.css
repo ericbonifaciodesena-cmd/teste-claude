@@ -613,6 +613,7 @@ em { font-style: italic; color: var(--lima); }
 .foto-stack__main {
   border-radius: var(--r-xl);
   --ratio: 3/4;
+  cursor: zoom-in;
 }
 
 .foto-stack__float {
@@ -623,6 +624,7 @@ em { font-style: italic; color: var(--lima); }
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-card);
   --ratio: 1/1;
+  cursor: zoom-in;
 }
 
 .foto-stack__tag {
@@ -732,7 +734,7 @@ em { font-style: italic; color: var(--lima); }
   border-radius: var(--r-lg);
   overflow: hidden;
   position: relative;
-  cursor: pointer;
+  cursor: zoom-in;
   transition: transform var(--ease), box-shadow var(--ease);
 }
 .galeria__item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
@@ -1235,12 +1237,12 @@ em { font-style: italic; color: var(--lima); }
 .booking-success__summary { font-weight: 700; font-size: 1rem; color: var(--lima) !important; }
 
 /* ── 17. CHECK-IN ──────────────────────────────────────────── */
-.checkin {
+section.checkin {
   padding: var(--sp-3xl) 0;
   background: var(--creme);
   color: var(--verde-fundo);
 }
-.checkin .section-title { color: var(--verde-fundo); }
+section.checkin .section-title { color: var(--verde-fundo); }
 
 .checkin__grid {
   display: grid;
