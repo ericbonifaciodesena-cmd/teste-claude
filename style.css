@@ -669,7 +669,7 @@ em { font-style: italic; color: var(--lima); }
 }
 .diferencial {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: .75rem;
   padding: var(--sp-sm);
   background: var(--verde-medio);
