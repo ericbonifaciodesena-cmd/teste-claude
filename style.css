@@ -724,6 +724,7 @@ em { font-style: italic; color: var(--lima); }
 .galeria__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: dense;
   gap: var(--sp-sm);
 }
 
