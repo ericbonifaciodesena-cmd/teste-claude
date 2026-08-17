@@ -167,16 +167,34 @@
     img.style.cursor = 'zoom-in';
   });
 
-  // Clique direto em cada container de foto (capture phase para garantir)
+  // Abre lightbox em qualquer container de foto
   function attachLightbox() {
     document.querySelectorAll('.galeria__item, .foto-stack__main, .foto-stack__float').forEach(container => {
-      container.addEventListener('click', (e) => {
-        e.stopPropagation();
+      let touchMoved = false;
+
+      container.addEventListener('touchstart', () => {
+        touchMoved = false;
+      }, { passive: true });
+
+      container.addEventListener('touchmove', () => {
+        touchMoved = true;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (touchMoved) return;
+        e.preventDefault();
         const img = container.querySelector('img');
         if (img && !lightbox.classList.contains('active')) {
           openLightbox(img.currentSrc || img.src, img.alt);
         }
-      }, true);
+      });
+
+      container.addEventListener('click', () => {
+        const img = container.querySelector('img');
+        if (img && !lightbox.classList.contains('active')) {
+          openLightbox(img.currentSrc || img.src, img.alt);
+        }
+      });
     });
   }
   attachLightbox();
