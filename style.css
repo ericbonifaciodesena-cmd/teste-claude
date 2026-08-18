@@ -444,7 +444,7 @@ em { font-style: italic; color: var(--lima); }
   .hero__spacer { flex: 1; }
   .hero__bottom {
     padding: var(--sp-xl) var(--sp-md) calc(var(--sp-lg) + .5rem);
-    margin-top: 1.5rem;
+    margin-top: 4rem;
   }
   .hero__eyebrow { margin-bottom: .25rem; }
   .hero__headline {
