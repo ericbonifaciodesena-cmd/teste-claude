@@ -630,6 +630,22 @@ const ACOMODACOES = [
     renderCalendar();
     updateDateBoxes();
 
+    // Carrega datas bloqueadas do Airbnb (via disponibilidade.json)
+    fetch('disponibilidade.json?v=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        (data.bloqueados || []).forEach(function (range) {
+          var cur = new Date(range.inicio + 'T00:00:00');
+          var end = new Date(range.fim    + 'T00:00:00');
+          while (cur <= end) {
+            unavailSet.add(fmtISO(cur));
+            cur.setDate(cur.getDate() + 1);
+          }
+        });
+        renderCalendar();
+      })
+      .catch(function () {});
+
     // Clique no box de check-in
     document.getElementById('checkinBox').addEventListener('click', () => {
       state.checkIn   = null;

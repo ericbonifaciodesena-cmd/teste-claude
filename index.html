@@ -395,37 +395,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.49z"/></svg>
           Reservar agora
         </a>
-        <a href="#disponibilidade" class="btn btn--ghost btn--xl">Ver disponibilidade</a>
+        <a href="#reservas" class="btn btn--ghost btn--xl">Ver disponibilidade</a>
       </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       DISPONIBILIDADE
-  ================================================ -->
-  <section id="disponibilidade" class="disponibilidade">
-    <div class="container">
-
-      <header class="section-header text-center reveal">
-        <span class="section-label">Disponibilidade</span>
-        <h2 class="section-title section-title--light reveal">
-          Quando podemos<br><em>te receber?</em>
-        </h2>
-        <p class="disponibilidade__sub reveal">Confira os dias disponíveis para reserva.</p>
-      </header>
-
-      <div class="disp-legenda reveal">
-        <span class="disp-legenda__item disp-legenda__item--livre">Disponível</span>
-        <span class="disp-legenda__item disp-legenda__item--ocupado">Ocupado</span>
-      </div>
-
-      <div id="disp-grid" class="disp-grid-wrap reveal">
-        <p style="text-align:center;opacity:.5;color:var(--creme)">Carregando calendário…</p>
-      </div>
-
-      <p id="disp-info" class="disp-info"></p>
-
     </div>
   </section>
 
@@ -805,71 +776,6 @@
       }, { passive: true });
     });
   </script>
-  <!-- Calendário de disponibilidade -->
-  <script>
-  (function () {
-    var MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
-                 'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-    var DIAS  = ['D','S','T','Q','Q','S','S'];
-
-    function pad(n) { return n < 10 ? '0' + n : '' + n; }
-    function toISO(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
-
-    function isBlocked(ds, ranges) {
-      return ranges.some(function (r) { return ds >= r.inicio && ds <= r.fim; });
-    }
-
-    function renderMonth(year, month, ranges, todayStr) {
-      var firstDow  = new Date(year, month, 1).getDay();
-      var totalDays = new Date(year, month + 1, 0).getDate();
-      var html = '<div class="disp-month">';
-      html += '<div class="disp-month__header">' + MESES[month] + ' ' + year + '</div>';
-      html += '<div class="disp-grid">';
-      DIAS.forEach(function (d) { html += '<span class="disp-cell disp-cell--dow">' + d + '</span>'; });
-      for (var i = 0; i < firstDow; i++) { html += '<span class="disp-cell"></span>'; }
-      for (var d = 1; d <= totalDays; d++) {
-        var ds  = toISO(year, month, d);
-        var cls = 'disp-cell';
-        if      (ds < todayStr)             cls += ' disp-cell--past';
-        else if (isBlocked(ds, ranges))     cls += ' disp-cell--ocupado';
-        else                                cls += ' disp-cell--livre';
-        if (ds === todayStr)                cls += ' disp-cell--hoje';
-        html += '<span class="' + cls + '">' + d + '</span>';
-      }
-      html += '</div></div>';
-      return html;
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var wrap = document.getElementById('disp-grid');
-      var info = document.getElementById('disp-info');
-      if (!wrap) return;
-
-      fetch('disponibilidade.json?v=' + Date.now())
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          var ranges = data.bloqueados || [];
-          var now    = new Date();
-          var today  = toISO(now.getFullYear(), now.getMonth(), now.getDate());
-          var html   = '';
-          for (var i = 0; i < 3; i++) {
-            var y = now.getFullYear(), m = now.getMonth() + i;
-            if (m > 11) { y += 1; m -= 12; }
-            html += renderMonth(y, m, ranges, today);
-          }
-          wrap.innerHTML = html;
-          if (info && data.atualizado) {
-            var d = new Date(data.atualizado);
-            info.textContent = 'Calendário atualizado em: ' + d.toLocaleString('pt-BR');
-          }
-        })
-        .catch(function () {
-          wrap.innerHTML = '<p class="disp-erro">Não foi possível carregar o calendário.<br>Consulte a disponibilidade diretamente pelo WhatsApp.</p>';
-        });
-    });
-  })();
-  </script>
-
   <script src="main.js"></script>
   <script src="booking.js"></script>
 
