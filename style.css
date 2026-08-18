@@ -1529,3 +1529,113 @@ section.checkin .section-title { color: var(--verde-fundo); }
   #lightbox-prev { left: .3rem; padding: .5rem .7rem; }
   #lightbox-next { right: .3rem; padding: .5rem .7rem; }
 }
+
+/* ── DISPONIBILIDADE ── */
+.disponibilidade {
+  padding: var(--sp-3xl) 0;
+  background: var(--verde-fundo);
+  color: var(--creme);
+}
+.disponibilidade__sub {
+  text-align: center;
+  color: var(--creme);
+  opacity: .65;
+  margin-top: -.5rem;
+  margin-bottom: 2rem;
+  font-size: .95rem;
+}
+.disp-legenda {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.disp-legenda__item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  color: var(--creme);
+  opacity: .8;
+}
+.disp-legenda__item::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.disp-legenda__item--livre::before   { background: rgba(114,217,38,.3); border: 1px solid rgba(114,217,38,.55); }
+.disp-legenda__item--ocupado::before { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); }
+
+.disp-grid-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.disp-month {
+  flex: 1 1 240px;
+  max-width: 290px;
+}
+.disp-month__header {
+  text-align: center;
+  font-size: .95rem;
+  font-weight: 600;
+  margin-bottom: .75rem;
+  color: var(--verde-lima);
+  text-transform: capitalize;
+}
+.disp-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.disp-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .76rem;
+  border-radius: 4px;
+  line-height: 1;
+  color: var(--creme);
+}
+.disp-cell--dow {
+  font-weight: 600;
+  font-size: .64rem;
+  color: var(--verde-lima);
+  opacity: .55;
+  aspect-ratio: unset;
+  padding-bottom: .25rem;
+}
+.disp-cell--past    { opacity: .18; }
+.disp-cell--livre   { background: rgba(114,217,38,.14); }
+.disp-cell--ocupado {
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.18);
+  text-decoration: line-through;
+}
+.disp-cell--hoje {
+  outline: 2px solid var(--verde-lima);
+  outline-offset: -2px;
+  font-weight: 700;
+}
+.disp-info {
+  text-align: center;
+  font-size: .7rem;
+  color: var(--creme);
+  opacity: .3;
+  margin-top: 1.75rem;
+}
+.disp-erro {
+  text-align: center;
+  color: var(--creme);
+  opacity: .55;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .disp-month { flex: 1 1 100%; max-width: 100%; }
+}
