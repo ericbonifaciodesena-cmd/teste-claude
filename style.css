@@ -480,6 +480,7 @@ em { font-style: italic; color: var(--lima); }
 .hero__eyebrow svg { opacity: .8; }
 
 .hero__headline { color: #fff; margin-bottom: var(--sp-md); text-shadow: 0 2px 16px rgba(0,0,0,.4); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 200; }
+.hero__headline em { font-style: normal; }
 
 .hero__sub {
   font-size: clamp(.95rem, 2vw, 1.15rem);
