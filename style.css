@@ -30,7 +30,8 @@
   --hero-overlay-bot: rgba(9,32,15,.85);
 
   /* Tipografia */
-  --font: 'Bricolage Grotesque', sans-serif;
+  --font:      'Inter', sans-serif;
+  --font-titulo: 'Bricolage Grotesque', sans-serif;
 
   /* Espaçamentos */
   --sp-xs:  .5rem;
@@ -64,7 +65,7 @@
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--creme);
   background: var(--verde-fundo);
   line-height: 1.7;
@@ -77,6 +78,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 input, select, textarea { font-family: inherit; }
 
 /* ── 3. TIPOGRAFIA ──────────────────────────────────────────── */
+h1, h2, h3, h4 { font-family: var(--font-titulo); }
 h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; }
 h2 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; font-weight: 700; letter-spacing: -.015em; }
 h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); line-height: 1.25; font-weight: 700; }
