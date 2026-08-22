@@ -282,10 +282,16 @@ const ACOMODACOES = [
       let ariaLabel = `${d} de ${MESES[month]}`;
       let ariaDisabled = 'false';
 
+      const isCheckoutSelected = state.checkOut && fmtISO(state.checkOut) === iso;
+
       if (isPast(date)) {
         classes += ' past';
         ariaDisabled = 'true';
         ariaLabel += ' — passado';
+      } else if (isCheckoutSelected) {
+        // Checkout selecionado — mostra como tal mesmo se a data estiver bloqueada
+        classes += ' checkout';
+        ariaLabel += ' — check-out selecionado';
       } else if (isUnavailable(date)) {
         // Permite selecionar como checkout se o check-in já foi escolhido e a data é posterior
         const canBeCheckout = state.selecting === 'checkout' && state.checkIn && date > state.checkIn;
@@ -302,11 +308,6 @@ const ACOMODACOES = [
         if (state.checkIn && fmtISO(state.checkIn) === iso) {
           classes += ' checkin';
           ariaLabel += ' — check-in selecionado';
-        }
-        // Check-out selecionado
-        if (state.checkOut && fmtISO(state.checkOut) === iso) {
-          classes += ' checkout';
-          ariaLabel += ' — check-out selecionado';
         }
         // Range intermediário
         if (
@@ -360,7 +361,7 @@ const ACOMODACOES = [
       btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
     });
     container.querySelectorAll('.cal-day.unavailable-checkout').forEach(btn => {
-      btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
+      btn.addEventListener('click', () => selectCheckout(new Date(btn.dataset.date + 'T00:00:00')));
     });
 
     // Força células quadradas após layout completo
@@ -374,6 +375,28 @@ const ACOMODACOES = [
         });
       }
     }, 100);
+  }
+
+  // Seleciona diretamente como checkout (usado em datas bloqueadas para check-in)
+  function selectCheckout(date) {
+    if (!state.checkIn || date <= state.checkIn) return;
+    const { nights } = calcPrice(state.checkIn, date);
+    if (nights < BOOKING_CONFIG.minimoNoites) {
+      alert(`A estadia mínima é de ${BOOKING_CONFIG.minimoNoites} noite(s).`);
+      return;
+    }
+    if (rangeHasUnavailable(state.checkIn, date)) {
+      alert('Existe uma data indisponível dentro do período selecionado. Por favor, escolha outro período.');
+      return;
+    }
+    state.checkOut  = date;
+    state.selecting = 'checkin';
+    updateDateBoxes();
+    updatePricePreview();
+    updateStep1Button();
+    renderCalendar();
+    document.getElementById('checkinBox').classList.remove('active-input');
+    document.getElementById('checkoutBox').classList.remove('active-input');
   }
 
   // Lida com a seleção de uma data no calendário
