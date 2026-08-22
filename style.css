@@ -1109,6 +1109,8 @@ em { font-style: italic; color: var(--lima); }
 .cal-day.empty  { cursor: default; }
 .cal-day.past   { color: rgba(255,255,255,.18); cursor: not-allowed; }
 .cal-day.unavailable { color: rgba(255,255,255,.18); cursor: not-allowed; text-decoration: line-through; }
+.cal-day.unavailable-checkout { color: rgba(255,255,255,.35); cursor: pointer; text-decoration: line-through; }
+.cal-day.unavailable-checkout:hover { background: var(--lima-muted); color: var(--creme); }
 .cal-day.checkin  { background: var(--lima); color: var(--verde-fundo); border-radius: var(--r-sm) 0 0 var(--r-sm); font-weight: 800; }
 .cal-day.checkout { background: var(--lima); color: var(--verde-fundo); border-radius: 0 var(--r-sm) var(--r-sm) 0; font-weight: 800; }
 .cal-day.checkin.checkout { border-radius: var(--r-sm); }

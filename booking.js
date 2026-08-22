@@ -287,9 +287,16 @@ const ACOMODACOES = [
         ariaDisabled = 'true';
         ariaLabel += ' — passado';
       } else if (isUnavailable(date)) {
-        classes += ' unavailable';
-        ariaDisabled = 'true';
-        ariaLabel += ' — indisponível';
+        // Permite selecionar como checkout se o check-in já foi escolhido e a data é posterior
+        const canBeCheckout = state.selecting === 'checkout' && state.checkIn && date > state.checkIn;
+        if (canBeCheckout) {
+          classes += ' unavailable-checkout';
+          ariaLabel += ' — indisponível para check-in';
+        } else {
+          classes += ' unavailable';
+          ariaDisabled = 'true';
+          ariaLabel += ' — indisponível';
+        }
       } else {
         // Check-in selecionado
         if (state.checkIn && fmtISO(state.checkIn) === iso) {
@@ -350,6 +357,9 @@ const ACOMODACOES = [
 
     // Cliques nos dias
     container.querySelectorAll('.cal-day:not(.past):not(.unavailable):not(.empty)').forEach(btn => {
+      btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
+    });
+    container.querySelectorAll('.cal-day.unavailable-checkout').forEach(btn => {
       btn.addEventListener('click', () => selectDate(new Date(btn.dataset.date + 'T00:00:00')));
     });
 
