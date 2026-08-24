@@ -50,11 +50,7 @@ const BOOKING_CONFIG = {
 const ACOMODACOES = [
   {
     id: 'bolha',
-    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M7 9a5 5 0 0 1 5-3"/>
-      <path d="M17 15a5 5 0 0 1-5 3"/>
-    </svg>`,
+    icon: `<img src="BOLHA+ESTRELAS@300x-8.png" alt="Bubble Transparente" width="28" height="28" style="object-fit:contain;" />`,
     titulo: 'Bubble Transparente',
     descricao: 'Durma sob um céu estrelado e desperte cercado pela Mata Atlântica, com conforto e privacidade.',
   },
