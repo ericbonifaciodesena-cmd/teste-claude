@@ -68,13 +68,7 @@ const ACOMODACOES = [
   },
   {
     id: 'jacuzzi',
-    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-      <path d="M4 12a8 8 0 0 1 16 0"/>
-      <path d="M2 12h20"/>
-      <path d="M6 12v4a6 6 0 0 0 12 0v-4"/>
-      <path d="M8 7c0-1.1.9-2 2-2s2 .9 2 2"/>
-      <path d="M14 5c0-1.1.9-2 2-2"/>
-    </svg>`,
+    icon: `<img src="JACUZZI@300x-8.png" alt="Jacuzzi aquecida" width="28" height="28" style="object-fit:contain;" />`,
     titulo: 'Jacuzzi Aquecida',
     descricao: 'Banheira de hidromassagem aquecida ao ar livre com vista para a mata. Relaxe com o som da floresta ao redor.',
   },
