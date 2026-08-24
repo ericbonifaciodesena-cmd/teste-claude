@@ -833,7 +833,7 @@ em { font-style: italic; color: var(--lima); }
   justify-content: center;
   background: rgba(114,217,38,.1);
   border-radius: var(--r-md);
-  color: #2a7c00;
+  color: var(--lima);
   flex-shrink: 0;
 }
 .acomodo-card__titulo {
